@@ -6,6 +6,7 @@ export const Header = ({ cart, onUpdateCartItemQuantity }) => {
     const modal = useRef();
 
     const cartQuantity = cart?.items?.length;
+    //DLUGOSC TABLICY
 
     function handleOpenCartClick() {
         modal.current.open();
@@ -30,7 +31,7 @@ export const Header = ({ cart, onUpdateCartItemQuantity }) => {
                     <h1>SKLEP</h1>
                 </div>
                 <p>
-                    <button onClick={handleOpenCartClick}>Cart</button>
+                    <button onClick={handleOpenCartClick}>Cart ({cartQuantity})</button>
                 </p>
             </header>
         </>
