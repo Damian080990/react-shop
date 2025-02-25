@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { CartContext } from "../store/shopping-cart-context";
 
-export const Product = ({ id, image, title, price, description, onAddItemToCart }) => {
+export const Product = ({ id, image, title, price, description }) => {
+    const { addItemToCart } = useContext(CartContext);
     return (
         <article className="product">
             <img src={image} alt={`foto ${title}`} />
@@ -11,7 +14,7 @@ export const Product = ({ id, image, title, price, description, onAddItemToCart 
                     <p>{description}</p>
                 </div>
                 <p className="product-actions">
-                    <button onClick={() => onAddItemToCart(id)}>Dodaj do koszyka</button>
+                    <button onClick={() => addItemToCart(id)}>Dodaj do koszyka</button>
                 </p>
             </div>
         </article>
@@ -24,5 +27,5 @@ Product.propTypes = {
     title: PropTypes.string,
     price: PropTypes.number,
     description: PropTypes.string,
-    onAddItemToCart: PropTypes.func,
+
 }
