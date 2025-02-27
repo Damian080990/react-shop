@@ -7,7 +7,7 @@ export const Header = () => {
     const cartCtx = useContext(CartContext);
     const modal = useRef();
 
-    const cartQuantity = cartCtx?.items?.length;
+    const cartQuantity = cartCtx?.items?.reduce((acc, item) => acc + item.quantity, 0);
     //DLUGOSC TABLICY
 
     function handleOpenCartClick() {
